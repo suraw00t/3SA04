@@ -2,7 +2,6 @@ import { Text, View, StyleSheet } from 'react-native';
 export default function Forecast(props) {
     return (
        <View>
-            <Text style={style.normalText}>main</Text>
             <Text style={style.normalText}>{props.main}</Text>
             <Text style={style.normalText}>description</Text>
             <Text style={style.normalText}>{props.description}</Text>

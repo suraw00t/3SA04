@@ -10,6 +10,23 @@ export default function Weather(props) {
         temp: 999
     })
 
+    useEffect(() => {
+        console.log(`fetching data with zipCode = ${props.zipCode}`)
+        if (props.zipCode) {
+            fetch(`http://api.openweathermap.org/data/2.5/weather?q=${props.zipCode},th&units=metric&APPID=c0226560c19c38f70ec85c15e0f2d76f`)
+                .then((response) => response.json())
+                .then((json) => {
+                    setForecastInfo({
+                        main: json.weather[0].main,
+                        description: json.weather[0].description,
+                        temp: json.main.temp
+                    });
+                })
+                .catch((error) => {
+                    console.warn(error);
+                });
+        }
+    }, [props.zipCode])
 
     return (
         <ImageBackground source={require('../bg.png')} style={styles.backdrop}>

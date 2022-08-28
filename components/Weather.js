@@ -1,3 +1,4 @@
+import React from 'react';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import Constants from 'expo-constants';

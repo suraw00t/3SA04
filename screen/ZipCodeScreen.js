@@ -7,12 +7,14 @@ import {
     TouchableHighlight,
     StyleSheet,
     ImageBackground,
+    Image,
 } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 
 const availableZipItems = [
     { place: 'หาดใหญ่', code: '90110' },
     { place: 'สงขลา', code: '90000' },
+    { place: 'สตูล', code: '91000' },
     { place: 'ตรัง', code: '92000' },
     { place: 'เชียงใหม่', code: '50000' },
     { place: 'ขอนแก่น', code: '40000' },
@@ -43,11 +45,12 @@ export default function ZipCodeScreen(){
     const navigation = useNavigation()
     return (
         <View>
+            <Image style={{height: '100%', width: '100%', position:'absolute'}} source={require('../4ss.jpg')} /> 
             <FlatList
                 data={availableZipItems}
                 keyExtractor={_keyExtractor}
                 renderItem={({item}) => <ZipItem {...item} navigation={navigation}/>}
-            />
+                />
         </View>
     );
 
@@ -78,7 +81,7 @@ const styles = StyleSheet.create(
         fontWeight: "bold",
         color: 'white',
         textAlignVertical: 'center',
-        color: 'green'
+        color: 'lightgreen'
       },
       backdrop: {
         alignItems: 'center',

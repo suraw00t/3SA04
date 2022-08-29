@@ -49,7 +49,7 @@ export default function Weather(props) {
                     </ImageBackground>
         )}
         else {
-           return ( <ImageBackground source={require('../4ss.jpg')} style={styles.backdrop}>
+           return ( <ImageBackground source={require('../loading.jpg')} style={styles.backdrop}>
                         <View style={styles.highlight}>
                             <Text></Text>
                             <Text style={styles.titleText}>Zip Code is {props.zipCode}</Text>
@@ -76,7 +76,6 @@ const styles = StyleSheet.create(
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
             width:"100%", 
             height:"30%", 
-            paddingTop: Constants.statusBarHeight, 
             alignItems: 'center'
         },
         titleText: {

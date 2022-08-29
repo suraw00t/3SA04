@@ -7,9 +7,9 @@
 เพิ่มการแสดงผลหน้าแรกให้กดได้มีหลายรหัสไปรษณีย์เพื่อเข้าไปดูรายละเอียดสภาพอากาศของรหัสไปรษณีย์นั้นๆ
 
 # *To run project*
-# clone project
-# npm install
-# npm start
+clone project
+npm install
+npm start
     
 ---
 

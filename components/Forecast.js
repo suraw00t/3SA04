@@ -4,7 +4,6 @@ export default function Forecast(props) {
     return (
        <View>
             <Text style={style.normalText}>{props.main}</Text>
-            <Text style={style.normalText}>description</Text>
             <Text style={style.normalText}>{props.description}</Text>
             <View style= {{
                 flexDirection: "row",

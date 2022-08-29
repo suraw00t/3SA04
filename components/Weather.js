@@ -6,9 +6,9 @@ import Forecast from './Forecast';
 
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
-        main: 'ทดสอบ 1 2 3 4 5 6 7 8',
-        description: 'แค่ทดสอบเฉยๆ อิอิ',
-        temp: 999
+        main: 'Loading',
+        description: 'Loading',
+        temp: 0
     })
 
     useEffect(() => {
@@ -29,14 +29,38 @@ export default function Weather(props) {
         }
     }, [props.zipCode])
 
+    function renderText(data) {
+        if (data === 'Rain') {
+           return ( <ImageBackground source={require('../rain.jpeg')} style={styles.backdrop}>
+                        <View style={styles.highlight}>
+                            <Text></Text>
+                            <Text style={styles.titleText}>Zip Code is {props.zipCode}</Text>
+                            <Forecast {...forecastInfo} />
+                        </View>
+                    </ImageBackground>
+        )}
+        if (data === 'Clouds') {
+           return ( <ImageBackground source={require('../clouds.jpg')} style={styles.backdrop}>
+                        <View style={styles.highlight}>
+                            <Text></Text>
+                            <Text style={styles.titleText}>Zip Code is {props.zipCode}</Text>
+                            <Forecast {...forecastInfo} />
+                        </View>
+                    </ImageBackground>
+        )}
+        else {
+           return ( <ImageBackground source={require('../4ss.jpg')} style={styles.backdrop}>
+                        <View style={styles.highlight}>
+                            <Text></Text>
+                            <Text style={styles.titleText}>Zip Code is {props.zipCode}</Text>
+                            <Forecast {...forecastInfo} />
+                        </View>
+                    </ImageBackground>
+        )}
+    }
+
     return (
-        <ImageBackground source={require('../bg.png')} style={styles.backdrop}>
-            <View style={styles.highlight}>
-                <Text></Text>
-                <Text style={styles.titleText}>Zip Code is {props.zipCode}</Text>
-                <Forecast {...forecastInfo} />
-            </View>
-        </ImageBackground>
+        renderText(forecastInfo.main)
     );
 }
 
